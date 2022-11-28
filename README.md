@@ -12,6 +12,19 @@ unplugin-vue-components 省去大量 import 语句
 pinia 全局状态管理
 vue3-infinite-scroll-better 滚动加载优化
 图标使用svg封装，全局svg图标组件
+```
+  <svg
+    :class="['svg-icon', $attrs.class]"
+    :style="{
+      width: iconSize + 'px',
+      height: iconSize + 'px',
+      outline: 'none'
+    }"
+    aria-hidden="true"
+  >
+    <use :xlink:href="'#icon-' + iconName" :fill="color" />
+  </svg>
+```
 全局less + scoped
 vuedraggable 拖拽
 cloneDeep 深拷贝
