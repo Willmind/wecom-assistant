@@ -1,7 +1,7 @@
 # wecom-assistant 企微助手开发技术文档记录
 
 ## 技术栈
-node版本: 16.17.1
+node版本: 16.17.1    
 vue3 + vite + electron + ant-design-vue
 
 ## 插件
