@@ -26,7 +26,7 @@ vue3-infinite-scroll-better 滚动加载优化
   </svg>
 ```
 全局less + scoped
-vuedraggable 拖拽
+[vuedraggable](https://www.itxst.com/vue-draggable/tutorial.html) 拖拽
 cloneDeep 深拷贝
 debounce 防抖
 
