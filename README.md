@@ -1,61 +1,14 @@
-# wecom-assistant 企微助手开发技术文档记录
-
-## 技术栈
-node版本: 16.17.1    
-[vue3](https://cn.vuejs.org/) + [vite](https://cn.vitejs.dev/) + [electron](https://www.electronjs.org/zh/) + [ant-design-vue](https://www.antdv.com/components/overview-cn/)
-
-
-## 插件
-autoimport 自动引入插件
-unplugin-auto-import
-unplugin-vue-components 省去大量 import 语句
-pinia 全局状态管理
-vue3-infinite-scroll-better 滚动加载优化
-图标使用svg封装，全局svg图标组件
-```
-  <svg
-    :class="['svg-icon', $attrs.class]"
-    :style="{
-      width: iconSize + 'px',
-      height: iconSize + 'px',
-      outline: 'none'
-    }"
-    aria-hidden="true"
-  >
-    <use :xlink:href="'#icon-' + iconName" :fill="color" />
-  </svg>
-```
-全局less + scoped
-[vuedraggable](https://www.itxst.com/vue-draggable/tutorial.html) 拖拽
-cloneDeep 深拷贝
-debounce 防抖
-
-## 代码风格
-vue3使用setup函数写法
-使用ref()、unref()、reactive()写法
-钩子函数onMounted 、register
-使用const 定义变量和方法
-遍历使用filter+map+foreach
-父子传值 defineProps + emit()回调
-computed+watch
-箭头函数写法
-
-## electron
-windows存放不同窗口界面
-控制不同窗口
-通信方式
-ipcRenderer 从渲染进程发送指令给主进程
-ipcMain 主页窗口命令
-new BrowserWindow 创建窗口并添加监听指令
-
-打开窗口时候，计算程序缩放比例
-窗口最大化、最小化minimize(),maximize(),unmaximize(),isMaximized()
-窗口退出、隐藏
-
-node全局进程
-process.env.NODE_ENV
-electronStorage 全局存储
-
-electron热更新
-electron增量更新、全局更新
-多页面多窗口优化，窗口池、缓存池
+<div class="output_wrapper" id="output_wrapper_id" style="font-size: 16px; color: rgb(62, 62, 62); line-height: 1.6; word-spacing: 0px; letter-spacing: 0px; font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><h1 id="hwecomassistant" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.6em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">wecom-assistant 企微助手开发技术文档记录</span></h1>
+<h2 id="h" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.4em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">技术栈</span></h2>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">node版本: 16.17.1    <br><a href="https://cn.vuejs.org/" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;">vue3</a> + <a href="https://cn.vitejs.dev/" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;">vite</a> + <a href="https://www.electronjs.org/zh/" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;">electron</a> + <a href="https://www.antdv.com/components/overview-cn/" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;">ant-design-vue</a></p>
+<h2 id="h-1" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.4em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">插件</span></h2>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">autoimport 自动引入插件<br>unplugin-auto-import<br>unplugin-vue-components 省去大量 import 语句<br>pinia 全局状态管理<br>vue3-infinite-scroll-better 滚动加载优化<br>图标使用svg封装，全局svg图标组件</p>
+<pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="hljs xml" style="overflow-wrap: break-word; margin: 0px 2px; line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; color: rgb(169, 183, 198); background: rgb(40, 43, 46); overflow-x: auto; padding: 0.5em; white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important; display: -webkit-box !important;">&nbsp;&nbsp;<span class="hljs-tag" style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; word-wrap: inherit !important; word-break: inherit !important;">&lt;<span class="hljs-name" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">svg</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-attr" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(165, 218, 45); word-wrap: inherit !important; word-break: inherit !important;">:class</span>=<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">"['svg-icon',&nbsp;$attrs.class]"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-attr" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(165, 218, 45); word-wrap: inherit !important; word-break: inherit !important;">:style</span>=<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">"{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;iconSize&nbsp;+&nbsp;'px',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;iconSize&nbsp;+&nbsp;'px',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outline:&nbsp;'none'<br>&nbsp;&nbsp;&nbsp;&nbsp;}"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-attr" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(165, 218, 45); word-wrap: inherit !important; word-break: inherit !important;">aria-hidden</span>=<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">"true"</span><br>&nbsp;&nbsp;&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag" style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; word-wrap: inherit !important; word-break: inherit !important;">&lt;<span class="hljs-name" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">use</span>&nbsp;<span class="hljs-attr" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(165, 218, 45); word-wrap: inherit !important; word-break: inherit !important;">:xlink:href</span>=<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">"'#icon-'&nbsp;+&nbsp;iconName"</span>&nbsp;<span class="hljs-attr" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(165, 218, 45); word-wrap: inherit !important; word-break: inherit !important;">:fill</span>=<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">"color"</span>&nbsp;/&gt;</span><br>&nbsp;&nbsp;<span class="hljs-tag" style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; word-wrap: inherit !important; word-break: inherit !important;">&lt;/<span class="hljs-name" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">svg</span>&gt;</span><br></code></pre>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">全局less + scoped<br><a href="https://www.itxst.com/vue-draggable/tutorial.html" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;">vuedraggable</a> 拖拽<br>cloneDeep 深拷贝<br>debounce 防抖</p>
+<h2 id="h-2" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.4em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">代码风格</span></h2>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">vue3使用setup函数写法<br>使用ref()、unref()、reactive()写法<br>钩子函数onMounted 、register<br>使用const 定义变量和方法<br>遍历使用filter+map+foreach<br>父子传值 defineProps + emit()回调<br>computed+watch<br>箭头函数写法</p>
+<h2 id="helectron" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.4em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">electron</span></h2>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">windows存放不同窗口界面<br>控制不同窗口<br>通信方式<br>ipcRenderer 从渲染进程发送指令给主进程<br>ipcMain 主页窗口命令<br>new BrowserWindow 创建窗口并添加监听指令</p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">打开窗口时候，计算程序缩放比例<br>窗口最大化、最小化minimize(),maximize(),unmaximize(),isMaximized()<br>窗口退出、隐藏</p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">node全局进程<br>process.env.NODE_ENV<br>electronStorage 全局存储</p>
+<p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">electron热更新<br>electron增量更新、全局更新<br>多页面多窗口优化，窗口池、缓存池</p></div>
